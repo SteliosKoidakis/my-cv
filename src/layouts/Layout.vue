@@ -1,18 +1,8 @@
 <template>
   <div class="Layout">
-    <nav class="Layout__nav padding-m">
-      <a class="padding-s text-center" v-if="isSmallScreen" @click="triggerMobileMenu">
-        <font-awesome-icon :icon="getArrow" />
-      </a>
-      <template v-if="showMenu">
-        <router-link class="padding-s" to="/">Home</router-link>
-        <router-link class="padding-s" to="/experience">Experience</router-link>
-        <router-link class="padding-s" to="/projects">Projects</router-link>
-        <router-link class="padding-s" to="/skills">Skills</router-link>
-        <router-link class="padding-s" to="/education">Education</router-link>
-      </template>
-
-    </nav>
+    <navigation
+      :routes="routes"
+    />
     <main class="Layout__main container">
       <slot/>
     </main>
@@ -23,12 +13,20 @@
 </template>
 
 <script>
+import Navigation from '../components/Navigation.vue';
+
+import { routesItems } from '../router';
+
 export default {
   name: 'Layout',
   data() {
     return {
       mobileMenuStatus: false,
+      routes: routesItems,
     };
+  },
+  components: {
+    Navigation,
   },
   computed: {
     isSmallScreen() {
