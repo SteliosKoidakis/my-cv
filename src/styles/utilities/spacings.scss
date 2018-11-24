@@ -1,0 +1,35 @@
+.padding {
+  &-xl {
+    padding: $spacing-xl;
+  }
+  &-l{
+    padding: $spacing-l;
+  }
+  &-m{
+    padding: $spacing-m;
+  }
+  &-s {
+    padding: $spacing-s;
+  }
+  &-xs{
+    padding: $spacing-xs;
+  }
+
+  &-top{
+    &-xl {
+      padding-top: $spacing-xl;
+    }
+    &-l{
+      padding-top: $spacing-l;
+    }
+    &-m{
+      padding-top: $spacing-m;
+    }
+    &-s {
+      padding-top: $spacing-s;
+    }
+    &-xs{
+      padding-top: $spacing-xs;
+    }
+  }
+}
