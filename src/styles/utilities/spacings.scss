@@ -1,47 +1,54 @@
-@mixin spacings($type) {
-  @if $type == all {
+@mixin spacings($type, $direction) {
+  .#{$type} {
+  @if $direction == 'all' {
     &-xl {
-      padding: $spacing-xl;
+      #{$type}: $spacing-xl;
     }
     &-l{
-      padding: $spacing-l;
+      #{$type}: $spacing-l;
     }
     &-m{
-      padding: $spacing-m;
+      #{$type}: $spacing-m;
     }
     &-s {
-      padding: $spacing-s;
+      #{$type}: $spacing-s;
     }
     &-xs{
-      padding: $spacing-xs;
+      #{$type}: $spacing-xs;
     }
   }  @else {
-    &-#{$type}{
+    &-#{$direction}{
       &-xl {
-        padding-#{$type}: $spacing-xl;
+        #{$type}-#{$direction}: $spacing-xl;
       }
       &-l{
-        padding-#{$type}: $spacing-l;
+        #{$type}-#{$direction}: $spacing-l;
       }
       &-m{
-        padding-#{$type}: $spacing-m;
+        #{$type}-#{$direction}: $spacing-m;
       }
       &-s {
-        padding-#{$type}: $spacing-s;
+        #{$type}-#{$direction}: $spacing-s;
       }
       &-xs{
-        padding-#{$type}: $spacing-xs;
+        #{$type}-#{$direction}: $spacing-xs;
       }
     }
   }
   
- 
 }
-.padding {
-  @include spacings('all');
-  @include spacings('top');
-  @include spacings('bottom');
-  @include spacings('left');
-  @include spacings('right');
 }
+
+@include spacings('padding','all');
+@include spacings('padding','top');
+@include spacings('padding','bottom');
+@include spacings('padding','left');
+@include spacings('padding','right');
+
+@include spacings('margin','all');
+@include spacings('margin','top');
+@include spacings('margin','bottom');
+@include spacings('margin','left');
+@include spacings('margin','right');
+
 
