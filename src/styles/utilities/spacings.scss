@@ -1,35 +1,47 @@
-.padding {
-  &-xl {
-    padding: $spacing-xl;
-  }
-  &-l{
-    padding: $spacing-l;
-  }
-  &-m{
-    padding: $spacing-m;
-  }
-  &-s {
-    padding: $spacing-s;
-  }
-  &-xs{
-    padding: $spacing-xs;
-  }
-
-  &-top{
+@mixin spacings($type) {
+  @if $type == all {
     &-xl {
-      padding-top: $spacing-xl;
+      padding: $spacing-xl;
     }
     &-l{
-      padding-top: $spacing-l;
+      padding: $spacing-l;
     }
     &-m{
-      padding-top: $spacing-m;
+      padding: $spacing-m;
     }
     &-s {
-      padding-top: $spacing-s;
+      padding: $spacing-s;
     }
     &-xs{
-      padding-top: $spacing-xs;
+      padding: $spacing-xs;
+    }
+  }  @else {
+    &-#{$type}{
+      &-xl {
+        padding-#{$type}: $spacing-xl;
+      }
+      &-l{
+        padding-#{$type}: $spacing-l;
+      }
+      &-m{
+        padding-#{$type}: $spacing-m;
+      }
+      &-s {
+        padding-#{$type}: $spacing-s;
+      }
+      &-xs{
+        padding-#{$type}: $spacing-xs;
+      }
     }
   }
+  
+ 
 }
+.padding {
+  @include spacings('all');
+  @include spacings('top');
+  @include spacings('bottom');
+  @include spacings('left');
+  @include spacings('right');
+}
+
