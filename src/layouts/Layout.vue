@@ -3,7 +3,7 @@
     <navigation
       :routes="routes"
     />
-    <main class="Layout__main container">
+    <main class="Layout__main">
       <slot/>
     </main>
     <footer class="Layout__footer padding-l">
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Navigation from '../components/Navigation.vue';
+import { Navigation } from '../components';
 
 import { routesItems } from '../router';
 
@@ -49,7 +49,12 @@ export default {
 
 <style lang="scss" scoped>
 .Layout {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
   &__nav {
+    display: flex;
+    flex: 1;
     background-color: black;
     a {
       font-weight: 700;
@@ -63,6 +68,13 @@ export default {
       color: white;
       cursor: pointer;
       background-color: darkslategray;
+    }
+  }
+  &__main {
+    display: flex;
+    flex: 1;
+    & > div {
+      width: 100%;
     }
   }
 }
